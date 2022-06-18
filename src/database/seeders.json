@@ -1,0 +1,69 @@
+{
+  "regioes": [
+    {
+      "id": 1,
+      "UF": "João Pessoa"
+    },
+    {
+      "id": 2,
+      "UF": "Campina Grande"
+    },
+    {
+      "id": 3,
+      "UF": "Guarabira"
+    }
+  ],
+  
+  "especies": [
+    {
+      "tamanho": 10,
+      "comportamento": "Pode chegar a uma população de quatro mil a seis mil habitantes por colmeia,produz cerca de dois a quatro litros de mel por ano" ,
+      "nome_cientifico":"Melipona scutellaris",
+      "cor":" A Uruçu possui corpo robusto (marrom e preto), vértice marrom-amarelado, com pelos abundantes amarelo-ruivos, frequentemente com alguns mais claros, cor de ouro."
+    },
+    {
+      "tamanho":6, 
+      "comportamento": "São uma das menores abelhas do gênero Melipona, por serem um pouco agressivas e produzirem um mel muito saboroso." ,
+      "nome_cientifico":"Melipona asilvai",
+      "cor":"predominantemente preta com marcar amarelas"
+    },
+    {
+      "tamanho": 12,
+      "comportamento":"Abelhas grandes, robustas e ótimas produtoras de mel" ,
+      "nome_cientifico":"Melipona scutellaris" ,
+      "cor": "predominante amarela com marcar pretas" 
+    }
+  ],
+  
+  "meliponarios": [
+    {
+      "name": "Meliponário Parahyba",
+      "caixas": 5,
+      "bairro":"Jardim Veneza",
+      "rua": "Rua Governador Luis de Brito Almeida",
+      "CEP": "58084-090",
+      "descricao": "Meliponário para criação de abelhas sem ferrão",
+      "regioes_id": 1
+    },
+
+    { 
+    "name": "Meliponário Smith",
+    "caixas": 6,
+    "bairro": "Bairro dos Ipês",
+    "rua": "Rua João Camilo de Oliveira", 
+    "CEP": "58000-000",
+    "descricao": "Meliponário para criação de abelhas sem ferrão",
+    "regioes_id": 2
+  },
+
+    { 
+    "name": "Meliponário Abelinha",
+    "caixas": 7,
+    "bairro": "Bairro das Industrias",
+    "rua": "Avenida Primeiro de Maio", 
+    "CEP": "58000-008",
+    "descricao": "Meliponário para criação de abelhas sem ferrão",
+    "regioes_id": 3
+  }
+ ]
+} 
