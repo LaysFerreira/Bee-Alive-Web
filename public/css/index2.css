@@ -1,0 +1,22 @@
+body {
+  box-sizing: border-box
+  font-family 'montserrat', sans-serif;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.header2 {
+    background-color: yellow;
+    lefth: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.filtro {
+  display: flex;
+  align-items: center;
+}
