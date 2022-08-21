@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/iconbee.ico">
+
+  <title>Home | Bee Alive Web</title>
+
+  <link rel="stylesheet" href="./css/index.css">
+  
+</head>
+ 
+
+  
+<body>
+  <!-- MENU -->
+  <header>
+   <div class="header">
+    <a href="./index.html">
+      <img src="/img/Group 3.png" alt="Logo Bee Alive Web">
+    </a>
+  </div>
+  </header>
+  
+  <div class="form">
+    <div class="frame">
+      <h2 class="text-align">Veja meliponários da região metropolitana de João Pessoa ao lado</h2>
+    </div>
+    
+    <div class="cards">
+      <main>
+        
+      </main>
+    </div>
+  </div>  
+  <div class="frame2">
+    <a class="link" href="/meliponicultor/signup.html">
+      <h2 class="text-color">Se você tem um meliponário na região metropolitana de João Pessoa, clique aqui!</h2>
+    </a>
+  </div>
+  <div class="grid">
+    <div class="wrapper">
+      <img src="img/image-1.jpg" class="img-thumbnail" alt="...">
+    <!--    <img src="img/image-1.jpg" alt=""> -->
+    </div>
+    <div class="wrapper">
+      <img src="img/image-2.jpg" class="img-thumbnail" alt="...">
+    </div>
+    <div class="wrapper">
+       <img src="img/image-3.jpg" class="img-thumbnail" alt="...">
+    </div>
+    <div class="wrapper">
+       <img src="img/image-4.jpg" class="img-thumbnail" alt="...">
+    </div>
+    <div class="grid2">
+      <div class="wrapper">
+       <img src="img/image-5.jpg" class="img-thumbnail" alt="...">
+      </div>
+      <div class="wrapper">
+        <img src="img/image-6.jpg" class="img-thumbnail" alt="...">
+      </div>
+      <div class="wrapper">
+        <img src="img/image-9.jpg" class="img-thumbnail" alt="...">
+      </div>
+      <div class="wrapper">
+        <img src="img/image-8.jpg" class="img-thumbnail" alt="...">
+      </div>
+      <div class="wrapper">
+        <img src="img/image-7.jpg" class="img-thumbnail" alt="...">
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="header3">
+      <p class="text-color">Copyright &copy; 2022 BeeAliveWEB</p>
+    </div>
+  </footer>
+
+
+  
+  <script>
+    const main = document.querySelector('main')
+    
+function createMeliponarioView(meliponario) {
+      const view = `<div class="col" id="meliponario-${meliponario.id}">
+         <div class="meliponario_card">
+          <div class="card-header">
+             ${meliponario.nome}
+             <span 
+                      onclick="destroyMeliponario(${meliponario.id})"
+          >
+<input type="submit" class="btn1" value="Excluir">
+            </span>
+            </div>
+           <div class="card-body">
+            <p class="card-caixa">Caixas: ${meliponario.qtd_caixas}</p>
+            <p class="card-caixa">Telefone: ${meliponario.telefone} </p>       
+            <p class="card-caixa">Bairro: ${meliponario.bairro} </p>       
+            <p class="card-caixa">Rua: ${meliponario.rua} </p>
+            <p class="card-caixa">Número: ${meliponario.numero} </p>
+            <p class="card-caixa">Descrição:  ${meliponario.descricao}</p>
+            <p class="card-caixa">Região: ${meliponario.regiao}</p>
+          </div>
+          </div>
+        </div>
+       </div>`;
+
+      main.insertAdjacentHTML('beforeend', view);
+    }
+
+    async function loadMeliponarios() {
+  
+    const url = '/meliponarios';
+
+    const meliponarios = await (await fetch(url)).json();
+
+    for (const meliponario of meliponarios) {
+    createMeliponarioView(meliponario);
+    }
+   }  
+    
+    async function destroyMeliponario(id) {
+      const url = `/meliponarios/${id}`;
+
+      const config = {
+        method: 'delete',
+      };
+
+      fetch(url, config);
+
+      document.querySelector(`#meliponario-${id}`).remove();
+    }
+
+async function aplicar() {
+        const regioesFilter = document.querySelector("select[name=regioesFilter]").value;
+
+        const url = `/meliponarios?regioes=${regioesFilter}`;
+        
+        const meliponarios = await (await fetch(url)).json();
+      
+        main.innerHTML = '';
+      
+         for (const meliponario of meliponarios) {
+    createMeliponarioView(meliponario);
+    }
+   }  
+   
+   loadMeliponarios();
+  </script>
+</body>
+
+</html>

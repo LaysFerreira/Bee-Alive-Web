@@ -4,53 +4,57 @@ async function up() {
   const db = await Database.connect();
 
   const especiesSql = `
-    CREATE TABLE especies (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+    CREATE TABLE Especies (
+      id_especie INTEGER PRIMARY KEY AUTOINCREMENT,
+      nome_cientifico VARCHAR(50),
       tamanho INTEGER NOT NULL,
-      comportamento VARCHAR(100) NOT NULL,
-      nome_cientifico VARCHAR(30),
-      cor VARCHAR(18) NOT NULL
+      comportamento VARCHAR(200) NOT NULL,
+      cor VARCHAR(20) NOT NULL
     )
   `;
   
   await db.run(especiesSql);
 
   const regioesSql = `
-    CREATE TABLE regioes (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      UF VARCHAR(18) NOT NULL
+    CREATE TABLE Regioes (
+      id_regiao INTEGER PRIMARY KEY AUTOINCREMENT,
+      UF VARCHAR(20) NOT NULL
     )
   `;
   
   await db.run(regioesSql);
   
   const sql = `
-    CREATE TABLE meliponario (
-        codmeliponario INTEGER PRIMARY KEY AUTOINCREMENT,
-        name VARCHAR(20) NOT NULL,
-        caixas INTEGER NOT NULL,
+    CREATE TABLE Meliponarios (
+        id_meliponario INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome VARCHAR(30) NOT NULL,
+        descricao VARCHAR(500) NOT NULL,
+        qtd_caixas INTEGER NOT NULL,
+        telefone VARCHAR(12) NOT NULL, 
         bairro VARCHAR(20) NOT NULL,
-        rua VARCHAR(20) NOT NULL,
-        CEP INTEGER NOT NULL,
-        descricao VARCHAR(20),
+        rua VARCHAR(30) NOT NULL,
+        numero INTEGER NOT NULL,
         regioes_id INTEGER NOT NULL,
-        FOREIGN KEY (regioes_id) REFERENCES regioes (id)
+        FOREIGN KEY (regioes_id) REFERENCES regioes (id_regiao)
     )
     `;
 
   await db.run(sql);
 
 
- const usersSql = `
-    CREATE TABLE users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name VARCHAR(50) NOT NULL,
+ const meliponicultoresSql = `
+    CREATE TABLE Meliponicultores (
+      id_meliponicultor INTEGER PRIMARY KEY AUTOINCREMENT,
       email VARCHAR(50) NOT NULL UNIQUE,
-      password VARCHAR(20) NOT NULL
+      senha VARCHAR(30) NOT NULL,
+      nome VARCHAR(30) NOT NULL,
+      cidade VARCHAR(30) NOT NULL,
+      cpf INTEGER NOT NULL,
+      telefone VARCHAR(12)   
     )
   `;
 
-  db.run(usersSql);
+  db.run(meliponicultoresSql);
 }
 
 export default { up };

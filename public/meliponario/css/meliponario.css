@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat', sans-serif;
+    background-color: #ffffff;
+}
+
+.header {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(
+      to right, #f8f23f,
+      #f25050, #fcb045);
+    background-size: 400% 400%;
+    animation: animate-background 5s infinite ease-in-out;
+}
+
+@keyframes animate-background {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+.container {
+  background-color: #fff9b3;
+  border-radius: 30px;
+  width: 400px;
+	height: 700px;
+  margin: auto; 
+  font-size: 10px;
+  margin-top: 25px;
+  justify-content: center;
+  align-items: center;
+} 
+
+.row1 {
+  display: flex;
+  margin: 0px;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-label {
+  width: auto;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+  
+}
+
+.form-control {
+  border-radius: 20px;
+  padding: 10px;
+  background-color: lightgray;
+  border: #eeff00;
+}
+
+.col-text {
+  width: 100px;
+}
+
+.col-text-descricao {
+  margin-top: 20px;
+  width: 100px;
+}
+
+.col-auto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-auto-descricao {
+    margin-top: 20px;
+    height: 80px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: lightgray;
+    border: #eeff00;
+}
+
+.btn {
+  background-color: #FFE600;
+  margin-top: 30px;
+  border-radius: 30px;
+  padding: 15px;
+  color: rgb(0, 0, 0);
+  border: 0px;
+  outline: 0;
+  transition: 0.5;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 15px;
+  transition: all .5
+}
+
+.btn:hover {
+  background-color: #000000;
+  color: white;
+  transition: all .5
+ }

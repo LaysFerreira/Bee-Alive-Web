@@ -1,8 +1,8 @@
 import { resolve } from 'path';
 import { readFileSync} from 'fs';
-import Meliponario from '../models/Meliponario.js';
-import Regiao from '../models/regiao.js';
-import Especie from '../models/especie.js';
+import Meliponarios from '../models/meliponarios.js';
+import Regioes from '../models/regioes.js';
+import Especies from '../models/especies.js';
 
 
 async function up() {
@@ -11,15 +11,15 @@ async function up() {
   const content = JSON.parse(readFileSync(file));
 
 for (const especie of content.especies) {
-    await Especie.create(especie);
+    await Especies.create(especie);
 }
 
 for (const regiao of content.regioes) {
-    await Regiao.create(regiao);
+    await Regioes.create(regiao);
 }
   
   for (const meliponario of content.meliponarios) {
-    await Meliponario.create(meliponario);
+    await Meliponarios.create(meliponario);
   }
 }
 

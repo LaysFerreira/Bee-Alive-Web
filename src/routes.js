@@ -1,12 +1,12 @@
 import { Router } from "express";
-import Regiao from "./models/regiao.js";
-import User from "./models/User.js";
-import Meliponario from "./models/Meliponario.js";
+import Regioes from "./models/regioes.js";
+import Meliponicultores from "./models/meliponicultores.js";
+import Meliponarios from "./models/meliponarios.js";
 
 
 const router = Router();
 
-router.get('/', (req, res) => res.redirect('/index.html'));
+router.get('/', (req, res) => res.redirect('index/index.html'));
 
 //router.get('/meliponarios?', async (req, res) => {
 // const regioes = req.query.regioes;
@@ -30,9 +30,9 @@ router.get('/meliponarios', async (req, res) => {
    let meliponarios = [];
 
   if (regioes)
-    meliponarios = await Meliponario.ReadByregioes()
+    meliponarios = await Meliponarios.ReadByregioes()
  else 
-    meliponarios = await Meliponario.readAll();
+    meliponarios = await Meliponarios.readAll();
 
  res.json(meliponarios);
  } catch(error) {
@@ -45,13 +45,13 @@ router.post('/meliponarios', async (req, res) => {
   try {
   const meliponario = req.body;
 
-  const newMeliponario = await Meliponario.create(meliponario);
+  const newMeliponario = await Meliponarios.create(meliponario);
 
   // console.log('New', newMeliponario)
 
   res.json(newMeliponario);
   } catch(error) {
-    throw new Error('Error in create food');
+    throw new Error('Error in create meliponario');
   }
 });
 
@@ -61,7 +61,7 @@ router.put('/meliponarios/:id', async (req, res) => {
 
   const meliponario = req.body;
 
-  const newMeliponario = await Meliponario.update(meliponario, id);
+  const newMeliponario = await Meliponarios.update(meliponario, id);
 
   if (newMeliponario) {
     res.json(newMeliponario);
@@ -77,7 +77,7 @@ router.delete('/meliponarios/:id', async (req, res) => {
    try {
   const id = Number(req.params.id);
 
-  if (await Meliponario.destroy(id)) {
+  if (await Meliponarios.destroy(id)) {
     res.status(204).send();
   } else {
     res.status(400).json({ error: 'Meliponário não encontrado.' });
@@ -89,7 +89,7 @@ router.delete('/meliponarios/:id', async (req, res) => {
 
 router.get('/regioes', async (req, res) => {
   try {
-  const regioes = await Regiao.readAll();
+  const regioes = await Regioes.readAll();
 
   res.json(regioes);
    } catch(error) {
@@ -97,13 +97,13 @@ router.get('/regioes', async (req, res) => {
   }  
 });
 
-router.post('/users', async (req, res) => {
+router.post('/meliponicultores', async (req, res) => {
   try {
-    const user = req.body;
+    const meliponicultor = req.body;
 
-    const newUser = await User.create(user);
+    const newMeliponicultor = await Meliponicultores.create(meliponicultor);
 
-    res.json(newUser);
+    res.json(newMeliponicultor);
   } catch(error) {
     throw new Error('Error in create user');
   }

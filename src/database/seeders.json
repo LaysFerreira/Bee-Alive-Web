@@ -37,31 +37,34 @@
   
   "meliponarios": [
     {
-      "name": "Meliponário Parahyba",
-      "caixas": 5,
+      "nome": "Meliponário Parahyba",
+      "qtd_caixas": 5,
+      "telefone": 988300402,
       "bairro":"Jardim Veneza",
       "rua": "Rua Governador Luis de Brito Almeida",
-      "CEP": "58084-090",
+      "numero": "155",
       "descricao": "Meliponário para criação de abelhas sem ferrão",
       "regioes_id": 1
     },
 
     { 
-    "name": "Meliponário Smith",
-    "caixas": 6,
+    "nome": "Meliponário Smith",
+    "qtd_caixas": 6,
+    "telefone": 978305689,
     "bairro": "Bairro dos Ipês",
     "rua": "Rua João Camilo de Oliveira", 
-    "CEP": "58000-000",
+    "numero": "122",
     "descricao": "Meliponário para criação de abelhas sem ferrão",
     "regioes_id": 2
   },
 
     { 
-    "name": "Meliponário Abelinha",
-    "caixas": 7,
+    "nome": "Meliponário Abelinha",
+    "qtd_caixas": 7,
+    "telefone": 965800124,
     "bairro": "Bairro das Industrias",
     "rua": "Avenida Primeiro de Maio", 
-    "CEP": "58000-008",
+    "numero": "225",
     "descricao": "Meliponário para criação de abelhas sem ferrão",
     "regioes_id": 3
   }
